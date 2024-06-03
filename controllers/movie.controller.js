@@ -32,7 +32,7 @@ const add_movie = async (req, res) => {
 const updateMovie = async (req, res) => {
     let image = req.file.path
     try {
-        let data = await movie.findIdAndUpdate(movieId, { ...req.body, image });
+        let data = await movie.findByIdAndUpdate(movieId, { ...req.body, image });
         return res.redirect("/");
     } catch (error) {
         console.log(error);
@@ -40,15 +40,17 @@ const updateMovie = async (req, res) => {
 }
 
 const edit_movie = async (req, res) => {
-    let { id } = req.params;
+    let id = req.query.id;
     movieId = id
+    console.log(req.query.id);
     try {
-        const data = await movie.findId(id);
+        const data = await movie.findById(movieId);
         return res.render("Editmovie", { data })
     } catch (error) {
         console.log(error)
     }
 }
+
 
 const deleteMovie = async (req, res) => {
     let { id } = req.params;
