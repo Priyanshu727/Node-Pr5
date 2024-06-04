@@ -53,7 +53,7 @@ const edit_movie = async (req, res) => {
 
 
 const deleteMovie = async (req, res) => {
-    let { id } = req.params;
+    let { id } = req.query.id;
     try {
         let data = await movie.findByIdAndDelete(id).then((singleRecode) => {
             fs.unlinkSync(singleRecode.image)
