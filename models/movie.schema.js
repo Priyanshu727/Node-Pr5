@@ -7,6 +7,6 @@ const movieSchema = new mongoose.Schema({
     movie_ratings: String
 })
 
-const movieDB = mongoose.model("movieTbl", movieSchema);
+const movieDB = mongoose.model("movie", movieSchema);
 
 module.exports = movieDB

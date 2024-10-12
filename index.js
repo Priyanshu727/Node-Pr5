@@ -5,6 +5,7 @@ const db = require('./config/Database');
 const router = require('./routers/movies.router');
 
 const app = express();
+require('dotenv').config();
 
 app.use(express.static('public'));
 
